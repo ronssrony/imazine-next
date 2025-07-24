@@ -8,7 +8,7 @@ interface ButtonProps {
   className?: string;
 }
 
-export const Button = ({
+ const Button = ({
   children,
   variant = 'primary',
   size = 'md',
@@ -18,7 +18,7 @@ export const Button = ({
   const baseStyles = "rounded-full border border-solid transition-colors flex items-center justify-center font-medium";
 
   const variantStyles = {
-    primary: "bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc] border-transparent",
+    primary: "bg-background text-background hover:bg-[#383838] dark:hover:bg-gray-800 border-transparent",
     secondary: "bg-gray-100 text-gray-800 hover:bg-gray-200 border-transparent",
     outline: "bg-transparent border-gray-300 hover:bg-gray-50 text-gray-800"
   };

@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/app/components/ui/Button';
+import Button  from '@/app/components/ui/Button';
+import Logo from '@/app/components/ui/Logo'; // Assuming you have a Logo component
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,9 +36,7 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-            <span className="text-2xl font-elegant font-bold text-foreground">
-              ima<span className="text-primary">zine</span>
-            </span>
+            <Logo/>
             </Link>
 
             {/* Desktop Navigation */}
@@ -66,7 +65,7 @@ const Navigation = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden ">
               <Button
                   onClick={() => setIsOpen(!isOpen)}
                   className="text-foreground"
@@ -79,7 +78,7 @@ const Navigation = () => {
           {/* Mobile Navigation */}
           {isOpen && (
               <div className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
+                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3  border-t border-border">
                   {navItems.map((item) =>
                       item.href.startsWith('#') ? (
                           <a

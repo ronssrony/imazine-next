@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={crimsonPro.variable}>
+    <html lang="en">
       <body
-        className={``}
+        className={`${crimsonPro.variable} font-sans antialiased bg-background text-foreground`}
       >
         <Navigation />
-        <main className="min-h-screen pt-24">{children}</main>
+        <main className="min-h-screen relative pt-24">{children}</main>
       </body>
     </html>
   );
