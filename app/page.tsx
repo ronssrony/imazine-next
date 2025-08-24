@@ -1,10 +1,30 @@
+'use client'
+import {AnimatePresence} from "framer-motion";
+import {useEffect, useState} from "react";
+import Preloader from './components/Preloader';
 
 
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        (
+            async () => {
+                setTimeout(() => {
+                    setIsLoading(false);
+                    window.scrollTo(0, 0);
+                }, 500)
+            }
+        )()
+    }, [])
   return (
-    <div className="font-sans  flex flex-col items-center justify-center p-8  gap-10">
-      <div className="w-full  flex items-center justify-center max-w-5xl">
-          <h1 className="text-5xl">Hello imazine</h1>
+
+    <div className="font-sans min-h-[100vh]  flex flex-col items-center justify-center p-8  gap-10">
+        <AnimatePresence mode='wait'>
+            {isLoading && <Preloader />}
+        </AnimatePresence>
+      <div className="w-full">
+
       </div>
     </div>
   );
