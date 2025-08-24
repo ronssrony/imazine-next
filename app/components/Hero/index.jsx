@@ -12,7 +12,6 @@ import { BiMenu } from "react-icons/bi";
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.set(".slidesm", {scale: 5} )
 
 const Hero = () => {
     const container = useRef(null);
@@ -44,11 +43,14 @@ const Hero = () => {
 
     useGSAP(() => {
         // Set initial scale here after DOM is ready
-        gsap.set(".slidesm", {scale: 5})
+        gsap.set(".slidesm", {
+            scale: 5,
+            clipPath: 'circle(75% at 50% 50%)' // Match initial video clip path
+        });
 
-        // Set initial clip path for the video to ensure proper animation
+        // Set initial clip path for the video
         gsap.set(".vdodiv", {
-            clipPath: 'circle(75% at 50% 50%)'  // Start with a visible circle
+            clipPath: 'circle(75% at 50% 50%)'
         });
 
         const tl = gsap.timeline({
@@ -60,17 +62,21 @@ const Hero = () => {
             }
         });
 
-        tl.to(".vdodiv", {
-            clipPath: 'circle(0% at 50% 50%)',  // Animate to 0% to hide it
+        // Animate both elements together with the same clip path
+        tl.to([".vdodiv", ".slidesm"], {
+            clipPath: 'circle(0% at 50% 50%)',
             ease: Power4,
             duration: 1.5
-        }, "start")
+        }, "start");
 
+        // Keep scale animation
         tl.to(".slidesm", {
             scale: 1,
             ease: Power2,
         }, 'start');
 
+        // Remove these translations if you want rows to stay centered
+        // Or keep them if you want some movement but with circular masking
         tl.to(".lft", {
             xPercent: -10,
             stagger: .03,
@@ -84,7 +90,7 @@ const Hero = () => {
             ease: Power4,
             duration: 1,
         }, 'start');
-    }, container)
+    }, container);
 
     const {scrollY} = useScroll();
     const [hidden, setHidden] = useState(false);
