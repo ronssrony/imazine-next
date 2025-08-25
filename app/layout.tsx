@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "./components/layout/Navigation";
 import { Crimson_Pro } from 'next/font/google'
 import ScrollSmootherWrapper from "@/app/components/gsap/ScrollSmootherWrapper";
-import Hero from "./components/Hero";
+import HomeSection from "./components/Hero/Home";
 
 const crimsonPro = Crimson_Pro({
     subsets: ['latin'],
@@ -45,11 +45,9 @@ export default function RootLayout({
       <body
         className={`${crimsonPro.variable} font-sans antialiased bg-white text-foreground`}
       >
-        <Hero/>
-        <ScrollSmootherWrapper>
-            <Navigation />
+        <Navigation />
+        <HomeSection/>
         <main className="min-h-screen relative pt-24">{children}</main>
-        </ScrollSmootherWrapper>
       </body>
     </html>
   );

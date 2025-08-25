@@ -1,0 +1,12 @@
+.vdodiv {
+    clip-path: circle(100% at 50% 50%);
+}
+
+.links a {
+    transition: all 0.5s;
+}
+
+.links:hover a:nth-child(1){
+    margin-top: -1.2vw;
+}
+
