@@ -18,6 +18,7 @@ export default function Home() {
     let clutter = '';
     const para = document.querySelector('.toptext');
     if (!para) return;
+    // @ts-ignore
     const characters = para.textContent.split('');
     characters.forEach(function (e) {
       clutter += `<span>${e}</span>`;
@@ -106,30 +107,8 @@ export default function Home() {
     <div ref={container} data-color="black" className="home section w-full h-[200vh] relative">
       <div className="w-full sticky top-0 left-0">
         {/* navbar */}
-        <motion.div
-          variants={{ visible: { y: 0 }, hidden: { y: '-100%' } }}
-          animate={hidden ? 'hidden' : 'visible'}
-          transition={{ duration: 0.35, ease: 'easeInOut' }}
-          className="section w-[100vw] sm:w-full px-6 fixed top-0 left-0 z-[9]"
-        >
-          <div className="w-full flex sm:flex items-center justify-between">
-            <div className="logo w-[12vh] h-[12vh] sm:w-[16vh] sm:h-[10vh] cursor-pointer z-[9]">
-              {/* logo svg (same as original) */}
-              {/* ...svg code omitted for brevity... */}
-            </div>
-            <div className="hidden md:flex gap-2 items-center z-[9] cursor-pointer ">
-              {["Solutions", "About", "Insight", "Team", "Careers"].map((item, index) => (
-                <h4 key={index} className={`${styles.links} h-[3vh] relative py[2.4vh] px-[2.2vh] text-center flex flex-col font-[Sansita] text-[2.1vh] overflow-hidden font-medium leading-[2.5vh]`}>
-                  <a className={`atag ${styles.atag} relative`}>{item} </a>
-                  <a className={`atag ${styles.atag} relative`}>{item} </a>
-                </h4>
-              ))}
-            </div>
-            <BiMenu style={{ fontSize: '5.5vw' }} className="inline-block sm:hidden z-[9] cursor-pointer" />
-          </div>
-        </motion.div>
         <div className="btmtext absolute z-[4] bottom-[4%] left-[25%] text-center sm:text-start sm:bottom-[7%] sm:left-8 w-48 ">
-          <h1 className="sm:text-[2vh] font-semibold">
+          <h1 className="sm:text-[2vh] font-semibold text-black">
             We build big ideas. Software. Apps. Tools. For real people. Real lives.
           </h1>
         </div>
@@ -151,7 +130,7 @@ export default function Home() {
         <div className="marqueecontainer w-full h-screen relative overflow-hidden ">
           {/* top Heading div */}
           <div className="heading absolute top-[12%] sm:top-[7%] left-1/2 -translate-x-1/2 w-72">
-            <h2 className="toptext text-[2.2vh] font-[Sansita] tracking-wide font-medium text-center">Crafting a new paradigm of healthcare, one that is</h2>
+            <h2 className="toptext text-[2.2vh] font-[Sansita] tracking-wide font-medium text-center text-black">Crafting a new paradigm of healthcare, one that is</h2>
           </div>
           <div className="slidesm absolute scale-[5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]">
             <div className="row">
