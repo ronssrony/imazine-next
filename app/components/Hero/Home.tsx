@@ -120,7 +120,7 @@ export default function Home() {
             autoPlay
             loop
             muted
-            src="https://videos.pexels.com/video-files/5538137/5538137-hd_1920_1080_25fps.mp4"
+            src="/assets/video/1ENIoa5sjq.mp4"
             style={{
               WebkitClipPath: 'circle(100% at 50% 50%)',
             }}

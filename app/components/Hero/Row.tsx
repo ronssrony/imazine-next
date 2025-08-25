@@ -7,8 +7,8 @@ import img6 from '../../../public/assets/images/img6.png';
 import img7 from '../../../public/assets/images/img7.png';
 import Image from 'next/image';
 
-import PropTypes from 'prop-types';
 
+// @ts-ignore
 function Row({ translateClass, direction }) {
 
   const items = [
@@ -65,9 +65,5 @@ function Row({ translateClass, direction }) {
   )
 }
 
-Row.propTypes = {
-  translateClass: PropTypes.string.isRequired,
-  direction: PropTypes.string.isRequired
-};
 
 export default Row
