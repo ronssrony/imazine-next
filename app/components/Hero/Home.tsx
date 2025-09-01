@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef,useLayoutEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,12 +9,13 @@ import styles from './Home.module.css';
 import Row from './Row';
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.set('.slidesm', { scale: 5 });
+
 
 export default function Home() {
   const container = useRef(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (typeof window === 'undefined') return;
     let clutter = '';
     const para = document.querySelector('.toptext');
     if (!para) return;
@@ -25,6 +26,7 @@ export default function Home() {
     });
     para.innerHTML = clutter;
     gsap.set('.toptext span', { opacity: 0.1 });
+    gsap.set('.slidesm', { scale: 5 });
     gsap.to('.toptext span', {
       scrollTrigger: {
         trigger: '.home',
