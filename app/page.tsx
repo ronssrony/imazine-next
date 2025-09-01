@@ -13,7 +13,7 @@ export default function Home() {
                 setTimeout(() => {
                     setIsLoading(false);
                     window.scrollTo(0, 0);
-                }, 500)
+                }, 2000)
             }
         )()
     }, [])
